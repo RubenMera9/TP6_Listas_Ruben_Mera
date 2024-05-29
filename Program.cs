@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Importar los espacios de nombres necesarios
+using System;
 using System.Collections.Generic;
 
 namespace Frutas
@@ -17,6 +18,7 @@ namespace Frutas
             Color = color;
         }
 
+        // Sobrescribir el método ToString para personalizar la representación de la fruta
         public override string ToString()
         {
             return $"{Nombre} ({Color})";
@@ -32,6 +34,7 @@ namespace Frutas
 
             bool continuar = true;
 
+            // Bucle principal del programa
             while (continuar)
             {
                 Console.WriteLine("\n-----Menú-----");
@@ -40,12 +43,15 @@ namespace Frutas
                 Console.WriteLine("3. Mostrar lista de frutas");
                 Console.WriteLine("4. Salir");
 
+                // Solicitar al usuario que elija una opción
                 Console.Write("\nElija una opción: ");
                 string opcion = Console.ReadLine();
 
+                // Evaluar la opción seleccionada por el usuario
                 switch (opcion)
                 {
                     case "1":
+                        // Añadir una nueva fruta a la lista
                         Console.Write("Ingrese el nombre de la fruta: ");
                         string nombreFruta = Console.ReadLine();
                         Console.Write("Ingrese el color de la fruta: ");
@@ -55,6 +61,7 @@ namespace Frutas
                         break;
 
                     case "2":
+                        // Eliminar una fruta de la lista
                         Console.Write("Ingrese el nombre de la fruta a eliminar: ");
                         string nombreEliminar = Console.ReadLine();
                         Fruta frutaEliminar = frutas.Find(f => f.Nombre.Equals(nombreEliminar, StringComparison.OrdinalIgnoreCase));
@@ -70,6 +77,7 @@ namespace Frutas
                         break;
 
                     case "3":
+                        // Mostrar la lista de frutas
                         Console.WriteLine("\nLista de frutas:");
                         foreach (Fruta fruta in frutas)
                         {
@@ -78,16 +86,19 @@ namespace Frutas
                         break;
 
                     case "4":
+                        // Salir del programa
                         continuar = false;
                         break;
 
                     default:
+                        // Opción inválida
                         Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
                         break;
                 }
             }
 
-            Console.WriteLine("Hasta luego, muchas gracias");
+            // Mensaje de despedida
+            Console.WriteLine("Hasta luego, muchas gracias :3");
         }
     }
 }
